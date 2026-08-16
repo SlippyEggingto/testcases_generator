@@ -1,5 +1,7 @@
 # testcases_generator
 Trình sinh test hoạt động trên nền tảng các thể loại hệ điều hành Linux.
+# Yêu cầu cần đạt
+- `g++`
 # Hướng dẫn sử dụng
 Trong repo đã có sẵn 3 file, `BUILD`, `PRESUM.cpp` và `RandomTestcasesGenerator.cpp`.
 ## Trước tiên ta nói về file `RandomTestcasesGenerator.cpp`
@@ -40,5 +42,5 @@ Việc thay đổi các dòng khác có thể dẫn đến những sự cố ngo
 ### File cần có
 Bạn cần file code để giải bài. Bạn thay thế file đó của bạn với file `PRESUM.cpp`.
 ### Bắt đầu sinh test
-Bạn mở terminal và chạy file `BUILD` bằng cứu pháp `./BUILD`.
+Bạn mở terminal và chạy file `BUILD` bằng cứu pháp `./BUILD RandomTestcasesGenerator`.
 Đợi.
