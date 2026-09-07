@@ -41,6 +41,7 @@ string __INPUT_FILE_NAME__                  = __PROBLEM_CODE_NAME__ + ".inp";
 string __OUTPUT_FILE_NAME__                 = __PROBLEM_CODE_NAME__ + ".out";
 ll __NUMBER_OF_TESTCASES__                  = 367;
 ll __TESTCASES_ORDER_DIGIT_COUNT__          = 0;
+ll subtask_lim[]                            = {-1, 10, 20, 30, 50, 100, 200, 300, 500, 1000, 2000};
 
 void system(string s) {
     system(s.c_str());
@@ -70,6 +71,9 @@ void __INITIALIZE__(ll __CURRENT_TEST__) {
 
 void __GENERATE_TESTCASES__() {
     WRITE(__INPUT_FILE_NAME__.c_str());
+
+    /* START OF TEST_GEN */
+
     const ll maxn = 1e5, MAXA = 1e9;
 
     cout << maxn << ' ' << maxn << '\n';
@@ -81,15 +85,22 @@ void __GENERATE_TESTCASES__() {
         cout << a << ' ' << b << '\n';
     }
 
+    /* END OF TEST_GEN */
+
     cout << flush;
 }
 
 void __FINALIZE__(ll __CURRENT_TEST__) {
+    auto start = std::chrono::high_resolution_clock::now();
+
     system( "./" + __PROBLEM_CODE_NAME__);
+
+    auto end = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+    cerr << fixed << setprecision(3) << "\n[ ok ] " << __CURRENT_TEST__ << "/" << __NUMBER_OF_TESTCASES__ << " (" << (long double)__CURRENT_TEST__/__NUMBER_OF_TESTCASES__*100 << "%)" << " in \033[33m" << duration.count() << " ms\033[0m ";
+
     system("mv " + __INPUT_FILE_NAME__ + " ./TEST/test" + __GET_STANDARD_TESTCASE_NUMBER__(__CURRENT_TEST__));
     system("mv " + __OUTPUT_FILE_NAME__ + " ./TEST/test" + __GET_STANDARD_TESTCASE_NUMBER__(__CURRENT_TEST__));
-    cerr << "\33[2K\r";
-    cerr << fixed << setprecision(3) << "[ ok ] " << __CURRENT_TEST__ << "/" << __NUMBER_OF_TESTCASES__ << " (" << (long double)__CURRENT_TEST__/__NUMBER_OF_TESTCASES__*100 << "%)";
 }
 
 int main() {
